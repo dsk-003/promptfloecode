@@ -1,0 +1,33 @@
+##begin_quote##
+system: 
+* Given the following conversation history and the users next question,rephrase the question to be a stand alone question.
+If the conversation is irrelevant or empty, just restate the original question.
+Do not add more details than necessary to the question.
+
+chat history: 
+{% for item in chat_history %} 
+user: 
+{{ item.inputs.chat_input }} 
+assistant: 
+{{ item.outputs.output }} 
+{% endfor %}
+
+Follow up Input: {{ chat_input }} 
+Standalone Question:
+##end_quote##
+
+<generated prompt>: system: 
+* Based on the given conversation history and the user's subsequent query, reformulate the query to be a self-contained question.
+If the conversation does not provide relevant information or is devoid of content, simply repeat the initial question.
+Avoid incorporating unnecessary details into the question.
+
+chat history: 
+{% for item in chat_history %} 
+user: 
+{{ item.inputs.chat_input }} 
+assistant: 
+{{ item.outputs.output }} 
+{% endfor %}
+
+Next Query: {{ chat_input }} 
+Independent Question:
